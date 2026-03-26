@@ -1,0 +1,20 @@
+name: CI/CD
+
+# Trigger the workflow on push or pull request to the main branch
+on:
+  pull_request:
+    branches: [ "feature-**" ]
+
+jobs:
+  feature-job:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out the repository code so the workflow can access it
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Run a single command in the runner's shell
+      - name: Run a one-line script
+        run: echo "Starting feature job..."
